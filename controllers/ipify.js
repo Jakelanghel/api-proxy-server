@@ -9,9 +9,8 @@ const ipify = async (req, res) => {
   let ip = null;
   let domain = null;
 
-  if (req.params.query) {
-    clientIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-    ip = clientIP;
+  if (!req.params.query) {
+    const clientIP = req.clientIp;
   } else {
     ip = req.query.ipAddress;
     domain = req.query.domain;
