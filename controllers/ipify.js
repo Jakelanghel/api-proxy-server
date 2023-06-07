@@ -9,14 +9,14 @@ const ipify = async (req, res) => {
   let ip = null;
   let domain = null;
 
-  const paramKeys = Object.keys(req.params);
-  if (paramKeys.length === 0) {
+  if (req.params.query) {
     clientIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
     ip = clientIP;
   } else {
     ip = req.query.ipAddress;
     domain = req.query.domain;
   }
+
   try {
     const params = new URLSearchParams({
       [IPIFY_KEY_NAME]: IPIFY_KEY_VALUE,
