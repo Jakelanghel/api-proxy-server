@@ -6,9 +6,17 @@ const ipify = async (req, res) => {
   const IPIFY_BASE_URL = process.env.IPIFY_BASE_URL;
   const IPIFY_KEY_NAME = process.env.IPIFY_KEY_NAME;
   const IPIFY_KEY_VALUE = process.env.IPIFY_KEY_VALUE;
-  const domain = req.query.domain;
-  const ip = req.query.ipAddress;
+  let ip = null;
+  let domain = null;
 
+  const paramKeys = Object.keys(req.params);
+  if (paramKeys.length === 0) {
+    clientIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    ip = clientIP;
+  } else {
+    ip = req.query.ipAddress;
+    domain = req.query.domain;
+  }
   try {
     const params = new URLSearchParams({
       [IPIFY_KEY_NAME]: IPIFY_KEY_VALUE,
