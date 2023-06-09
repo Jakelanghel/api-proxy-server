@@ -6,11 +6,12 @@ const ipify = async (req, res) => {
   const IPIFY_BASE_URL = process.env.IPIFY_BASE_URL;
   const IPIFY_KEY_NAME = process.env.IPIFY_KEY_NAME;
   const IPIFY_KEY_VALUE = process.env.IPIFY_KEY_VALUE;
-  let ip = null;
-  let domain = null;
+  let ip = "";
+  let domain = "";
 
   if (!req.params.query) {
-    const clientIP = req.clientIp;
+    ip = req.ip;
+    console.log(ip);
   } else {
     ip = req.query.ipAddress;
     domain = req.query.domain;

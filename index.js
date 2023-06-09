@@ -1,13 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const ipify = require("./routes/ipify.js");
-const requestIp = require("request-ip");
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-// Use the request-ip middleware
-app.use(requestIp.mw());
+app.set("trust proxy", true);
 
 // Enable cors
 app.use(cors());
