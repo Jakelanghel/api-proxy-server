@@ -1,9 +1,7 @@
-const url = require("url");
 const express = require("express");
-const needle = require("needle");
 const router = express.Router();
 
-const ipify = require("../controllers/ipify");
+const ipify = require("../controllers/ipify/ipify");
 
 router.get("/", ipify);
 
