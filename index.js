@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const ipify = require("./routes/ipify.js");
-const books = require("./routes/red-rising.js");
+const redRising = require("./routes/red-rising.js");
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -13,6 +13,6 @@ app.use(cors());
 
 // Routes
 app.use("/api/ipify", ipify);
-app.use("/api/red-rising", books);
+app.use("/api/red-rising", redRising);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
