@@ -1,4 +1,4 @@
-export const filterName = (arr) => {
+const filterName = (arr) => {
   // if characters name is in quote replace it with "blank"
   const filteredArr = arr.map((quote) => {
     const quoteArr = quote.text.split(" ");
@@ -12,3 +12,5 @@ export const filterName = (arr) => {
   });
   return filteredArr;
 };
+
+module.exports = filterName;
