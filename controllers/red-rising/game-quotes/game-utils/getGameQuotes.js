@@ -20,6 +20,8 @@ const getGameQuotes = (data, slug, length) => {
       bookIndex = (bookIndex + 1) % filteredQuotes.length;
     }
   }
+  console.log(slug);
+  console.log(questions);
   // return the results of filterName
   return filterName(questions);
 };

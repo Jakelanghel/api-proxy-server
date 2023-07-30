@@ -1,5 +1,5 @@
 const needle = require("needle");
-const generateRandomNumbers = require("../utils/generateRandomNumbers");
+const generateRandomNumbers = require("../../../utils/generateRandomNumbers");
 
 const characterQuote = async (req, res) => {
   const slug = req.query.slug;

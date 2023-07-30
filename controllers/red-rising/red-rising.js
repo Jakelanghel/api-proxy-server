@@ -12,16 +12,6 @@ const all = async (req, res) => {
     "https://www.redrisingquotes.com/api/v1/quotes/?limit=0&offset=0"
   );
 };
-
-// const gameQuotes = async (req, res) => {
-//   const slug = req.query.slug;
-//   needleGET(
-//     req,
-//     res,
-//     `https://www.redrisingquotes.com/api/v1/books/${slug}/quotes`
-//   );
-// };
-
 module.exports = {
   all,
   books,

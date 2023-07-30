@@ -13,10 +13,8 @@ const filterQuotes = (slug, data) => {
     return filteredQuotes;
   } else {
     // if single book is selected then data will be a object containing a quotes array
-    console.log(data.quotes);
-    // const filteredQuotes = runFilter(data.quotes);
-    // console.log(filteredQuotes);
-    // return filteredQuotes;
+    const filteredQuotes = runFilter(data.quotes);
+    return filteredQuotes;
   }
 };
 

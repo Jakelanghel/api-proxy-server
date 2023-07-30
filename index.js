@@ -16,3 +16,21 @@ app.use("/api/ipify", ipify);
 app.use("/api/red-rising", redRising);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+
+// Ping the server every 15 minutes (900000 milliseconds)
+const pingInterval = 15 * 60 * 1000;
+setInterval(() => {
+  // Send a request to the ping endpoint
+  // Replace 'localhost' with your server's domain or IP address
+  fetch("http://localhost:3000/ping")
+    .then((response) => {
+      if (response.ok) {
+        console.log("Server pinged successfully");
+      } else {
+        console.log("Error pinging the server");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}, pingInterval);
