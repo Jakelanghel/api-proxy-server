@@ -22,7 +22,7 @@ const pingInterval = 15 * 60 * 1000;
 setInterval(() => {
   // Send a request to the ping endpoint
   // Replace 'localhost' with your server's domain or IP address
-  fetch("http://localhost:3000/ping")
+  fetch("https://dynamic-api-proxy.onrender.com/api/red-rising/ping")
     .then((response) => {
       if (response.ok) {
         console.log("Server pinged successfully");
