@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const pingServer = require("./utils/pingServer.js");
 const ipify = require("./routes/ipify.js");
 const redRising = require("./routes/red-rising.js");
 require("dotenv").config();
@@ -15,22 +16,11 @@ app.use(cors());
 app.use("/api/ipify", ipify);
 app.use("/api/red-rising", redRising);
 
+// Middleware to handle ping requests
+app.use("/api/red-rising/ping", pingServer);
+
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 // Ping the server every 15 minutes (900000 milliseconds)
 const pingInterval = 15 * 60 * 1000;
-setInterval(() => {
-  // Send a request to the ping endpoint
-  // Replace 'localhost' with your server's domain or IP address
-  fetch("https://dynamic-api-proxy.onrender.com/api/red-rising/ping")
-    .then((response) => {
-      if (response.ok) {
-        console.log("Server pinged successfully");
-      } else {
-        console.log("Error pinging the server");
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}, pingInterval);
+setInterval(pingServer, pingInterval);

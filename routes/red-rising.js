@@ -10,10 +10,7 @@ const {
   gameQuotes,
 } = require("../controllers/red-rising/red-rising");
 
-const { ping } = require("../controllers/util/ping");
-
 router.get("/all", all);
-router.get("/ping", ping);
 router.get("/books", books);
 router.get("/random", randomQuote);
 router.get("/characters", characterNames);
