@@ -7,7 +7,7 @@ const pingServer = () => {
       if (response.status === 200) {
         console.log("Server pinged successfully");
       } else {
-        console.log("Error pinging the server");
+        ("Error pinging the server");
       }
     })
     .catch((error) => {
