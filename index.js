@@ -9,15 +9,21 @@ const app = express();
 
 app.set("trust proxy", true);
 
-// Enable cors
-app.use(cors());
+// Enable cors and set the Access-Control-Allow-Origin header
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // Routes
 app.use("/api/ipify", ipify);
 app.use("/api/red-rising", redRising);
 
-// Middleware to handle ping requests
-app.use("/api/red-rising/ping", pingServer);
+// Endpoint to handle ping requests
+app.get("/api/ping", (req, res) => {
+  res.sendStatus(200);
+});
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
