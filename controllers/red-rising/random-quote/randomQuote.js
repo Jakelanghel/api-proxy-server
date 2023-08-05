@@ -7,7 +7,6 @@ const randomQuote = async (req, res) => {
       "https://www.redrisingquotes.com/api/v1/random/"
     );
     const data = apiRes.body;
-    console.log(data);
     const chapterArr = data.results[0].chapter.split(" ");
     let chapterNumber = chapterArr[0].slice(0, -1);
     chapterNumber = chapterNumber.replace(/^[a-zA-Z]+:/, "").trim();
